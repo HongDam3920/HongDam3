@@ -219,9 +219,9 @@
   top: 150px;
   left : 780px;
 }
-.swiper_box .swiper-button-next:hover,
-.swiper_box .swiper-button-prev:hover{
-  transform: scale(1.1)
+.swiper_box.slide-in .swiper-button-next:hover,
+.swiper_box.slide-in .swiper-button-prev:hover{
+  transform: scale(1.1);
 }
 .swiper_box .swiper-button-prev{
   top: 150px;
@@ -253,9 +253,12 @@
 @keyframes slideInFromBottom{
   0% {
     transform: translateY(100px);
+    opacity: 0;
   }
+
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 .swiper_box.slide-in .swiper-button-next,
