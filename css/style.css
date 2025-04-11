@@ -1,0 +1,455 @@
+@charset "utf-8";
+ body{
+  overflow-x: hidden;
+   background-color: black;
+ }
+ .mark{
+   position: fixed;
+   top: 5%;
+   right: 5%;
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
+   background-color: rgb(255, 20, 147);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 0;
+ }
+ .mark a{
+   font-size: 24px;
+   font-weight: 900;
+   font-family: "Pacifico";
+   letter-spacing: 5px;
+ }
+
+ /****************************************/
+ /* 돌아가는 이미지 */
+.img_effect{
+  width: 100%;
+  height: 1500px;
+  position: absolute;
+}
+.img_effect .img_box{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+.img_effect .img_box:nth-child(1){
+  transform: rotate(120deg);
+  top: 0%;
+  left: 60%;
+  width: 400px;
+  height: 400px;
+}
+.img_effect .img_box:nth-child(2){
+  transform: rotate(30deg);
+  top: 15%;
+  left: 15%;
+  filter: blur(5px);
+}
+.img_effect .img_box:nth-child(3){
+  transform: rotate(330deg);
+  top: -30%;
+  left: -20%;
+  width: 800px;
+  height: 800px;
+}
+.img_effect .img_box:nth-child(4){
+  transform: rotate(250deg);
+  top: 30%;
+  left: 70%;
+  width: 500px;
+  height: 500px;
+}
+
+/****************************************/
+/* 능력구현파트 */
+ .ability_word{
+   position: relative;
+   width: 100%;
+   height: 1300px;
+   margin-top: 100px;
+   padding-left: 15%;
+   padding-right: 15%;
+   /* transition: 1s; */
+ }
+ .ability_word .box{
+   position: relative;
+   opacity: 0;
+   /* transition: top 1s ease, left 1s ease; */
+ }
+ .ability_word .box.hover1 p{
+    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 120%;
+    font-size: 70px;
+    font-weight: 600;
+    color: 	rgb(255, 20, 147);
+    transition: 0.5s;
+ }
+ .ability_word .box span{
+  color: yellow;
+  text-shadow:
+  4px 4px 0 rgb(255, 140, 0);
+  transition: 0.5s;
+  /* opacity: 50%; */
+}
+ .ability_word .box.hover1 p:last-child{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+ }
+ .ability_word .box.hover1:hover>p:first-child{
+    opacity: 0;
+ }
+ .ability_word .box.hover1:hover>p:last-child{
+    opacity: 1;
+ }
+
+.ability_word .assistance.title2 p{
+  font-weight: 300;
+}
+.ability_word .assistance.title1 p{
+  font-weight: 500;
+  letter-spacing: 10px;
+  font-size: 90px;
+}
+.ability_word .assistance p{
+   color: white;
+   width: 1000px;
+   font-size: 80px;
+ }
+
+@keyframes pop-word {
+  to {
+    transform: rotateX(0);
+  }
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+.box.box-animate-in{
+  display: block;
+
+  animation: show 0.8s forwards, pop-word 2.5s forwards;
+  animation-timing-function: cubic-bezier(0.14, 1.23, 0.33, 1.16);
+  opacity: 0;
+
+  transform: rotateX(120deg);
+  transform-origin: 50% 100%;
+}
+
+/****************************************/
+/* 스와이퍼 기능 구현파트 */
+.swiper_box{
+  
+  position: relative;
+  margin-left: 10%;
+  padding-top: 100px;
+  /* width: 100%; */
+}
+
+.swiper_box .title{
+  display: flex;
+  align-items: center;
+  font-size: 60px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 50px;
+}
+.swiper_box .title img{
+  width: 160px;
+  height: 100%;
+  margin-left: 1%;
+}
+
+.swiper_box .swiper{
+  position: relative;
+  margin: 0 0;
+  width: 100%;
+}
+.swiper_box .swiper .swiper-wrapper{
+  width: 100%;
+}
+.swiper_box .swiper .swiper-wrapper .swiper-slide{
+  width: 450px;
+  height: 450px;
+  background-color: rgb(25, 25, 25);
+  border-radius: 5%;
+  padding: 60px 60px;
+}
+.swiper_box .swiper .swiper-wrapper .swiper-slide p{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 240px;
+}
+.swiper_box .swiper .swiper-wrapper .swiper-slide p img{
+  margin-left: 5%;
+  width: 60px;
+}
+.swiper_box .swiper .swiper-wrapper .swiper-slide p:nth-child(2){
+  font-size: 24px;
+  font-weight: 300;
+}
+.swiper_box .swiper-button-next,
+.swiper_box .swiper-button-prev{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(25, 25, 25);
+  transition: 0.3s;
+}
+.swiper_box .swiper-button-next{
+  top: 150px;
+  left : 780px;
+}
+.swiper_box .swiper-button-next:hover,
+.swiper_box .swiper-button-prev:hover{
+  transform: scale(1.1)
+}
+.swiper_box .swiper-button-prev{
+  top: 150px;
+  left: 650px;
+}
+.swiper_box .swiper-button-next::after,
+.swiper_box .swiper-button-prev::after{
+  font-size: 20px;
+  position: static;
+  color: white;
+}
+.swiper-button-disabled{
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important; 
+}
+
+/* 애니메이션 파트 */
+@keyframes slideInFromRight{
+  0% {
+    transform: translateX(3000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInFromBottom{
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.swiper_box.slide-in .swiper-button-next,
+.swiper_box.slide-in .swiper-button-prev,
+.swiper_box.slide-in .title{
+  animation: slideInFromBottom 1s ease-out forwards;
+}
+.swiper_box .swiper{
+  transform: translateX(3000px);
+}
+.swiper_box.slide-in .swiper{
+  animation: slideInFromRight 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+
+/* 포트폴리오 소개파트 */
+.portfolio_box{
+  height: 1000px;
+  position: relative;
+  margin-top: 250px;
+}
+
+.portfolio_box .pf_box:nth-child(2){
+  top: 200px;
+}
+.portfolio_box .pf_box:nth-child(3){
+  top: 400px;
+}
+.portfolio_box .pf_box:nth-child(4){
+  top: 600px;
+}
+.portfolio_box .pf_box{
+  position: absolute;
+
+  left: 10%;
+  right: 10%;
+
+  height: 600px;
+  border-top: 10px solid black;
+  border-radius: 24px;
+  background-color: rgb(25, 25, 25);
+
+  transition: 0.5s ease;
+  transform: rotateX(-10deg) translateZ(-5px);
+  
+  padding: 3% 5%;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+.portfolio_box .pf_box:hover{
+  background-color: rgb(255, 20, 147);
+  transform: translateX(0) scale(0.99) translateY(-160px);
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+}
+.portfolio_box .pf_box .box_part1{
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.portfolio_box .pf_box .box_part1 h1{
+  align-self: flex-end;
+  font-size: 80px;
+  color: rgb(255, 20, 147);
+  font-weight: 700;
+}
+.portfolio_box .pf_box.hovered .box_part1 h1{
+  color: black;
+}
+.portfolio_box .pf_box .box_part1 p{
+  align-self: flex-start;
+  font-weight: 400;
+  font-size: 36px;
+  color: rgb(255, 20, 147);
+}
+.portfolio_box .pf_box.hovered .box_part1 p{
+  color: black;
+}
+
+.portfolio_box .pf_box .box_part2{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.portfolio_box .pf_box .box_part2 .left_box .comment{
+  color: rgb(255, 20, 147);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+.portfolio_box .pf_box.hovered .box_part2 .left_box .comment{
+  color: black;
+}
+.portfolio_box .pf_box .box_part2 .left_box .tag_box{
+  display: flex;
+}
+.portfolio_box .pf_box .box_part2 .left_box .tag_box p{
+  display: inline-block;
+  background-color: rgb(255, 20, 147);
+  color: black;
+  font-size: 16px;
+  border-radius: 30px;
+
+  padding: 1.5px 8px 2px 8px;
+  line-height: 20px;           
+
+  margin-right: 10px;
+}
+.portfolio_box .pf_box.hovered .box_part2 .left_box .tag_box p{
+  background-color: black;
+  color: rgb(255, 20, 147);
+}
+.portfolio_box .pf_box .box_part2 .right_box a{
+  display: flex;
+  align-items: center;
+}
+.portfolio_box .pf_box .box_part2 .right_box a p{
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgb(255, 20, 147);
+  margin-right: 10px;
+}
+.portfolio_box .pf_box.hovered .box_part2 .right_box p{
+  color: black;
+}
+.portfolio_box .pf_box .box_part2 .right_box a{
+  transition-duration: 0.5s;
+  
+}
+.portfolio_box .pf_box .box_part2 .right_box a:hover{
+  transform: scale(1.2) translateX(20px);
+}
+.portfolio_box .pf_box .box_part2 .right_box a img{
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) saturate(100%) invert(30%) sepia(89%) saturate(6026%) hue-rotate(316deg) brightness(102%) contrast(103%);
+}
+.portfolio_box .pf_box.hovered .box_part2 .right_box a img{
+  filter: none;
+}
+
+/* 애니메이션 파트 */
+@keyframes slideInFromLeft{
+  0% {
+    left: -300%;
+    right: 300%
+  }
+  100% {
+    left: 10%;
+    right: 10%;
+  }
+}
+.portfolio_box .pf_box{
+  left: -300%;
+  right: 300%
+}
+.portfolio_box.slide-in .pf_box{
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+.portfolio_box.slide-in .pf_box:nth-child(2){
+ animation-delay: 0.2s;
+}
+.portfolio_box.slide-in .pf_box:nth-child(3){
+  animation-delay: 0.4s;
+ }
+ .portfolio_box.slide-in .pf_box:nth-child(4){
+  animation-delay: 0.6s;
+ }
+
+
+/**********************************/
+/* footer작업 */
+.footer{
+  position: relative;
+  z-index: 1;
+  background-color: rgb(255, 20, 147);
+  border-top: 10px solid #000;
+}
+.footer .footer_box{
+  margin: 0 10%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+.footer .footer_box .last_comment{
+  font-size: 36px;
+  font-weight: 700;
+  padding-bottom: 100px;
+}
+.footer .footer_box .last_comment p{
+  color: black;
+  line-height: 1.5;
+}
+.footer .footer_box .copylight{
+  color: black;
+  font-size: 16px;
+}
